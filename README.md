@@ -1,1 +1,1 @@
-# plugin_insider_insights
+# insider-insights
