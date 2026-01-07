@@ -11,7 +11,7 @@ define('FC_PLUGIN_URL', plugin_dir_url(__FILE__));
 // Disallow deactivation of this plugin
 function prevent_plugin_deactivation($actions, $plugin_file, $plugin_data, $context)
 {
-    if ('insider-insights/insider-insights.php' === $plugin_file) {
+    if (plugin_basename(__FILE__) === $plugin_file) {
         unset($actions['deactivate']);
     }
     return $actions;
@@ -22,11 +22,12 @@ function remove_deactivation_checkbox()
 {
     global $pagenow;
     if ('plugins.php' === $pagenow) {
-        echo '
+        $plugin_basename = esc_attr(plugin_basename(__FILE__));
+        echo "
         <style>
-        .plugins tr[data-plugin="insider-insights/insider-insights.php"].active { display: none; };
-        .plugins tr[data-plugin="insider-insights/insider-insights.php"] > th.check-column > input{ display: none; };
-        </style>';
+        .plugins tr[data-plugin=\"{$plugin_basename}\"].active { display: none; }
+        .plugins tr[data-plugin=\"{$plugin_basename}\"] > th.check-column > input{ display: none; }
+        </style>";
     }
 }
 add_filter('plugin_action_links', 'prevent_plugin_deactivation', 10, 4);
