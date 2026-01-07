@@ -1,1 +1,1 @@
-Плагие агенства Shapoval Agency
+Плагин поддержки агенства Shapoval Agency
