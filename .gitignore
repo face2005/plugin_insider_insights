@@ -1,0 +1,19 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Archives
+*.zip
+
+# Node/PHP tooling (if ever added)
+node_modules/
+vendor/
+
+# WordPress
+wp-content/
